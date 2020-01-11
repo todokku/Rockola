@@ -1,0 +1,32 @@
+﻿.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.3fr 2.2fr 0.5fr;
+    grid-template-areas: "Buscar Buscar ListaVideos" "Reproductor Reproductor ListaVideos" "Playlist Playlist ListaVideos";
+}
+
+.Buscar {
+    grid-area: Buscar;
+}
+
+.ListaVideos {
+    grid-area: ListaVideos;
+}
+
+.Reproductor {
+    grid-area: Reproductor;
+}
+
+.Playlist {
+    grid-area: Playlist;
+}
+
+#ListaVideos {
+    height:500px;
+    overflow-y:scroll;
+}
+#ListaVideos li {
+    list-style: none;
+    padding: 5px 3px 3px 3px;
+   
+}

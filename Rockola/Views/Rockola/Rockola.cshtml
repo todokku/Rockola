@@ -1,0 +1,41 @@
+﻿@model List<Rockola.Models.Videos>
+@{
+    ViewBag.Title = "Rockola";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/Rockola.css" rel="stylesheet" type="text/css" />
+<h2>Rockola</h2>
+
+<div class="grid-container">
+    <div class="Buscar">
+        @using (Ajax.BeginForm("SearchVideo", "Rockola",new AjaxOptions {
+            HttpMethod="GET"}
+                                  ))
+        {
+        <form class="form-inline" style="width:100%">
+
+            <input type="text" style="width: 100%;" name="buscar" />
+            <input type="submit" value="Buscar" style="float: left; " />    
+        </form>
+        }
+    </div>
+    <div class="ListaVideos">
+        <ul id="ListaVideos">
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <li><img src='@item.Thumbnail' width="100" height="100" />@item.Nombre</li>
+                   
+                }
+            }
+        </ul>
+    </div>
+
+    <div class="Reproductor">
+
+        <iframe width='80%' height='80%'
+                src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+    </div>
+    <div class="Playlist"></div>
+</div>
